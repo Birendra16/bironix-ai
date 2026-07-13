@@ -14,14 +14,17 @@ function ChatArea() {
     useEffect(() => {
         const getMsg = async () => {
             if (selectedConversation) {
+                dispatch(setMessages([]))
                 const data = await getMessages(selectedConversation?._id)
-                dispatch(setMessages(data))
+                if (data && data.length > 0) {
+                    dispatch(setMessages(data))
+                }
             }
         }
 
         getMsg()
 
-    }, [selectedConversation])
+    }, [selectedConversation?._id])
 
     return (
         <div className='flex-1 flex flex-col'>

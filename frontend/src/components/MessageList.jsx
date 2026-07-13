@@ -39,7 +39,7 @@ function MessageList() {
             ) :
                 <div>
                     {messages?.map((msg, i) => (
-                        <div>
+                        <div className='mb-2'>
                             <MessageBubble role={msg?.role} content={msg?.content} />
                         </div>
                     ))}
